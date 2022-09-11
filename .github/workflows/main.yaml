@@ -2,7 +2,7 @@ name: run words.py
 
 on:
   schedule:
-    - cron: '*/6 * * * *' # Every 6 min
+    - cron: '36 * * * *' # At minute 36
 
 jobs:
   build:
