@@ -1,8 +1,8 @@
 name: run words.py
 
 on:
-  schedule:
-    - cron: '6 * * * *' # Every 6 min
+  #schedule:
+   # - cron: '6 * * * *' # Every 6 min
 
   workflow_dispatch:
 
