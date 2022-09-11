@@ -5,3 +5,4 @@ pandas_stubs==1.2.0.58
 requests==2.27.1
 selenium==4.4.3
 spacy==3.2.3
+lxml==4.8.0
