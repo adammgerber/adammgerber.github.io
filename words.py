@@ -67,6 +67,7 @@ def get_words():
 
     final_words.to_json('words.json', force_ascii=False, orient='records')
 
-get_words()
+if __name__ == "__main__":
+    get_words()
 
   
