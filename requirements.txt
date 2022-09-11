@@ -1,0 +1,7 @@
+beautifulsoup4==4.11.1
+icu==0.0.1
+pandas==1.4.4
+pandas_stubs==1.2.0.58
+requests==2.27.1
+selenium==4.4.3
+spacy==3.2.3
