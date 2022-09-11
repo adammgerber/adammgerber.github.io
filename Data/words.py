@@ -63,7 +63,7 @@ def get_words():
     final_words = list(dict.fromkeys(final_words))
 
 
-    final_words = pd.DataFrame(final_words, columns=['verbs'])
+    final_words = pd.DataFrame(final_words, columns=['words'])
 
     final_words.to_json('words.json', force_ascii=False, orient='records')
 
