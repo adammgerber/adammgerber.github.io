@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run words.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: python words.py
+        run: python3 words.py
           
       - name: commit files
         run: |
