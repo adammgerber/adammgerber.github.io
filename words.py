@@ -35,7 +35,7 @@ def get_words():
     article = news
     driver.quit()
 
-    nlp = spacy.load('ru_core_news_lg')
+    nlp = spacy.load('ru_core_news_md')
 
     regex = re.compile('[^a-zA-Z\ЁёА-я\-ÀàÂâÆæÇçÈèÉéÊêËëÎîÏïÔôŒœÙùÛûÜü]')
     articles = re.sub(regex, ' ', article)
