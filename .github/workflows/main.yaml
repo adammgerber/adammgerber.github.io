@@ -25,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install PyICU
-          python -m spacy download ru_core_news_lg
+          python -m spacy download ru_core_news_md
           
       - name: execute py script # run words.py
         env:
