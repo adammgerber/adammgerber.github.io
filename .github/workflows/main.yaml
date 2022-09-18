@@ -1,6 +1,7 @@
 name: run words.py
 
 on:
+  workflow_dispatch: # for manual workflow trigger
   schedule:
     - cron: '35 0 * * *' # Every day at 00:35
 
