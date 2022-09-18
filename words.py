@@ -31,8 +31,10 @@ def get_words():
 
     html_text = requests.get(current_url).text
     soup = BeautifulSoup(html_text, 'lxml')
-    news = soup.select_one('div.GeneralMaterial-article').get_text(' ', strip=True)
-
+    try:
+        news = soup.select_one('div.GeneralMaterial-article').get_text(' ', strip=True)
+    except:
+        news = soup.select_one('div.Slide-slide').get_text(' ', strip=True)
     article = news
     driver.quit()
 
