@@ -131,6 +131,6 @@ def get_article():
 
 if __name__ == "__main__":
     get_words()
-    #get_article()
+    get_article()
 
   
