@@ -72,8 +72,8 @@ def get_words():
 
     #################### COMPARE AGAINST CORPUS #####################
 
-    with open('top50words.txt', 'r')as f:
-        doc = f.read().replace('\n', '')
+    with open('top20words.txt', 'r')as f:
+        doc = f.read()
 
     nlp = spacy.load('ru_core_news_md')
     doc = nlp(doc)
@@ -100,7 +100,9 @@ def get_words():
 
     compared_list = [x for x in final_words_list if x not in final_words_50k]
     
-    compared_list.to_json('words.json', force_ascii=False, orient='records')
+    final_words = pd.DataFrame(compared_list, columns=['words'])
+        
+    final_words.to_json('words.json', force_ascii=False, orient='records')
 
 def get_article():
     options = Options()
