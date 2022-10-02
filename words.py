@@ -63,13 +63,44 @@ def get_words():
     final_adjs = list(dict.fromkeys(sorted_adjs))
     final_words = final_adjs + final_nouns + final_verbs
 
-    final_words = list(dict.fromkeys(final_words))
+    final_words_list = list(dict.fromkeys(final_words))
 
 
     final_words = pd.DataFrame(final_words, columns=['words'])
 
-    final_words.to_json('words.json', force_ascii=False, orient='records')
+    
 
+    #################### COMPARE AGAINST CORPUS #####################
+
+    with open('top50words.txt', 'r')as f:
+        doc = f.read().replace('\n', '')
+
+    nlp = spacy.load('ru_core_news_md')
+    doc = nlp(doc)
+
+    verbs = [token.lemma_ for token in doc if token.pos_ == 'VERB']
+    nouns = [token.lemma_ for token in doc if token.pos_ == 'NOUN']
+    adjs = [token.lemma_ for token in doc if token.pos_ == 'ADJ']
+
+
+    collator = icu.Collator.createInstance(icu.Locale('ru_RU.UTF-8'))
+    sorted_verbs = sorted(verbs,key=collator.getSortKey)
+    sorted_nouns = sorted(nouns,key=collator.getSortKey)
+    sorted_adjs = sorted(adjs,key=collator.getSortKey)
+
+
+    final_verbs = list(dict.fromkeys(sorted_verbs))
+    final_nouns = list(dict.fromkeys(sorted_nouns))
+    final_adjs = list(dict.fromkeys(sorted_adjs))
+    final_words = final_adjs + final_nouns + final_verbs
+
+    final_words_50k = list(dict.fromkeys(final_words))
+
+    ###### COMPARE WITH SET OPERATIONS AND LIST COMPREHENSION #####
+
+    compared_list = [x for x in final_words_list if x not in final_words_50k]
+    
+    compared_list.to_json('words.json', force_ascii=False, orient='records')
 
 def get_article():
     options = Options()
@@ -98,6 +129,6 @@ def get_article():
 
 if __name__ == "__main__":
     get_words()
-    get_article()
+    #get_article()
 
   
