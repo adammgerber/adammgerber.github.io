@@ -101,9 +101,9 @@ def get_words():
     compared_list = [x for x in final_words_list if x not in final_words_50k]
     
     final_words = pd.DataFrame(compared_list, columns=['words'])
-    result = final_words.to_json(orient="index")
+    result = final_words.to_json(force_ascii=False, orient="index")
     parsed = json.loads(result)
-    new = json.dumps(parsed, indent=4) 
+    new = json.dumps(parsed, indent=4, ensure_ascii=False) 
     with open('words.json', 'w')as f:
         f.write(new)  
     
