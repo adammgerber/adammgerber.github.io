@@ -1,4 +1,4 @@
-## [Link](https://adammgerber.github.io/words.json)
+## [Link](https://adammgerber.github.io)
 ### Simple JSON that contains words extracted from news article on a daily basis
 ### For usage for TheDailyDose app
 ### Words update automatically every 24 hours
